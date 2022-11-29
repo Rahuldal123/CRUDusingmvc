@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+<p>
+    @Html.ActionLink("Add Emp","Create","Employee")
+</p>
+<table class=table table-bordered>
+    <tr>
+        <th>Emp Id</th>
+        <th>Emp Name</th>
+        <th>Emp Salary</th>
+        <th>Action</th>
+    </tr>
+    @foreach (CRUDusingmvc.DAL.Employee item in ViewBag.EmployeeList)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Salary</td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new{@id=item.Id})
+                @Html.ActionLink("Delete","Delete",new{@id=item.Id})
+                @Html.ActionLink("View","View",new{@id=item.Id})
+            </td>
+        </tr>
+    }
+</table>
+
